@@ -16,23 +16,7 @@
 
 package vendor.amlogic.hardware.systemcontrol@1.0;
 
-enum Result : uint32_t {
-    OK,                  // Success
-    FAIL,                // Failure, unknown reason
-};
+interface ISystemControlCallback {
 
-struct DroidDisplayInfo {
-    //1:tablet 2:MBOX 3:TV
-    int32_t type;
-    string socType;
-    string defaultUI;
-    int32_t fb0w;
-    int32_t fb0h;
-    int32_t fb0bits;
-    int32_t fb0trip;//Triple Buffer enable or not
-
-    int32_t fb1w;
-    int32_t fb1h;
-    int32_t fb1bits;
-    int32_t fb1trip;//Triple Buffer enable or not
+    oneway notifyCallback(int32_t event);
 };

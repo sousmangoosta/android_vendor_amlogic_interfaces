@@ -16,8 +16,9 @@
 
 package vendor.amlogic.hardware.systemcontrol@1.0;
 
+import ISystemControlCallback;
 
-interface ISystemControl {  
+interface ISystemControl {
  /**
   * get support hdmi display mode list
   * @param supportDispModes return data
@@ -61,5 +62,118 @@ interface ISystemControl {
   */
   isHDCPTxAuthSuccess()
       generates (Result result);
+
+  getProperty(string key)
+      generates (Result result, string value);
+
+  getPropertyString(string key, string def)
+      generates (Result result, string value);
+
+  getPropertyInt(string key, int32_t def)
+      generates (Result result, int32_t value);
+
+  getPropertyLong(string key, int64_t def)
+      generates (Result result, int64_t value);
+
+  getPropertyBoolean(string key, bool def)
+      generates (Result result, bool value);
+
+  setProperty(string key, string value)
+      generates (Result result);
+
+  readSysfs(string path)
+      generates (Result result, string value);
+
+  writeSysfs(string path, string value)
+      generates (Result result);
+
+  readHdcpRX22Key(int32_t size)
+      generates (Result result, string value, int32_t len);
+
+  writeHdcpRX22Key(string key)
+      generates (Result result);
+
+  readHdcpRX14Key(int32_t size)
+      generates (Result result, string value, int32_t len);
+
+  writeHdcpRX14Key(string key)
+      generates (Result result);
+
+  writeHdcpRXImg(string path)
+      generates (Result result);
+
+  getBootEnv(string key)
+      generates (Result result, string value);
+
+  setBootEnv(string key, string value);
+
+  getDroidDisplayInfo()
+      generates (Result result, DroidDisplayInfo info);
+
+  loopMountUnmount(int32_t isMount, string path);
+
+  setSourceOutputMode(string mode);
+
+  setSinkOutputMode(string mode);
+
+  setDigitalMode(string mode);
+
+  setOsdMouseMode(string mode);
+
+  setOsdMousePara(int32_t x, int32_t y, int32_t w, int32_t h);
+
+  setPosition(int32_t left, int32_t top, int32_t width, int32_t height);
+
+  getPosition(string mode)
+      generates (Result result, int32_t x, int32_t y, int32_t w, int32_t h);
+
+  saveDeepColorAttr(string mode, string dcValue);
+
+  getDeepColorAttr(string mode)
+      generates (Result result, string value);
+
+  /**
+     * @param 1: enable
+     *        0: disable
+     */
+  setDolbyVisionState(int32_t state);
+
+  sinkSupportDolbyVision()
+      generates (Result result, string mode, bool support);
+
+  setHdrMode(string mode);
+
+  setSdrMode(string mode);
+
+  resolveResolutionValue(string mode)
+      generates (Result result, int64_t value);
+
+  setCallback(ISystemControlCallback callback);
+
+  //3D
+  set3DMode(string mode);
+
+  init3DSetting();
+
+  getVideo3DFormat()
+      generates (Result result, int32_t format);
+
+  getDisplay3DTo2DFormat()
+      generates (Result result, int32_t format);
+
+  setDisplay3DTo2DFormat(int32_t format);
+
+  setDisplay3DFormat(int32_t format);
+
+  getDisplay3DFormat()
+      generates (Result result, int32_t format);
+
+  setOsd3DFormat(int32_t format);
+
+  switch3DTo2D(int32_t format);
+
+  switch2DTo3D(int32_t format);
+
+  autoDetect3DForMbox();
 
 };

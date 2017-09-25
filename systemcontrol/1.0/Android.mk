@@ -17,6 +17,25 @@ LOCAL_JAVA_LIBRARIES := \
 
 
 #
+# Build types.hal (DroidDisplayInfo)
+#
+GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/DroidDisplayInfo.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava \
+        -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
+        vendor.amlogic.hardware.systemcontrol@1.0::types.DroidDisplayInfo
+
+$(GEN): $(LOCAL_PATH)/types.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
 # Build types.hal (Result)
 #
 GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/Result.java
@@ -27,8 +46,8 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava \
-        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         vendor.amlogic.hardware.systemcontrol@1.0::types.Result
 
 $(GEN): $(LOCAL_PATH)/types.hal
@@ -42,17 +61,38 @@ GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/ISystemContro
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISystemControl.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/ISystemControlCallback.hal
+$(GEN): $(LOCAL_PATH)/ISystemControlCallback.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
 $(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava \
-        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         vendor.amlogic.hardware.systemcontrol@1.0::ISystemControl
 
 $(GEN): $(LOCAL_PATH)/ISystemControl.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build ISystemControlCallback.hal
+#
+GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/ISystemControlCallback.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISystemControlCallback.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava \
+        -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
+        vendor.amlogic.hardware.systemcontrol@1.0::ISystemControlCallback
+
+$(GEN): $(LOCAL_PATH)/ISystemControlCallback.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
 include $(BUILD_JAVA_LIBRARY)
@@ -73,6 +113,25 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 
 
 #
+# Build types.hal (DroidDisplayInfo)
+#
+GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/DroidDisplayInfo.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava \
+        -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
+        vendor.amlogic.hardware.systemcontrol@1.0::types.DroidDisplayInfo
+
+$(GEN): $(LOCAL_PATH)/types.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
 # Build types.hal (Result)
 #
 GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/Result.java
@@ -83,8 +142,8 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava \
-        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         vendor.amlogic.hardware.systemcontrol@1.0::types.Result
 
 $(GEN): $(LOCAL_PATH)/types.hal
@@ -98,17 +157,38 @@ GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/ISystemContro
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISystemControl.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/ISystemControlCallback.hal
+$(GEN): $(LOCAL_PATH)/ISystemControlCallback.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
 $(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava \
-        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
         vendor.amlogic.hardware.systemcontrol@1.0::ISystemControl
 
 $(GEN): $(LOCAL_PATH)/ISystemControl.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build ISystemControlCallback.hal
+#
+GEN := $(intermediates)/vendor/amlogic/hardware/systemcontrol/V1_0/ISystemControlCallback.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISystemControlCallback.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava \
+        -randroid.hidl:system/libhidl/transport \
+        -rvendor.amlogic.hardware:vendor/amlogic/interfaces \
+        vendor.amlogic.hardware.systemcontrol@1.0::ISystemControlCallback
+
+$(GEN): $(LOCAL_PATH)/ISystemControlCallback.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
 include $(BUILD_STATIC_JAVA_LIBRARY)

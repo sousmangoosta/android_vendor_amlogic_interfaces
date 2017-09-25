@@ -5,26 +5,28 @@ filegroup {
     srcs: [
         "types.hal",
         "ISystemControl.hal",
+        "ISystemControlCallback.hal",
     ],
 }
 
 genrule {
     name: "vendor.amlogic.hardware.systemcontrol@1.0_genc++",
     tools: ["hidl-gen"],
-    cmd: "$(location hidl-gen) -o $(genDir) -Lc++-sources -rvendor.amlogic.hardware:vendor/amlogic/interfaces -randroid.hidl:system/libhidl/transport vendor.amlogic.hardware.systemcontrol@1.0",
+    cmd: "$(location hidl-gen) -o $(genDir) -Lc++-sources -randroid.hidl:system/libhidl/transport -rvendor.amlogic.hardware:vendor/amlogic/interfaces vendor.amlogic.hardware.systemcontrol@1.0",
     srcs: [
         ":vendor.amlogic.hardware.systemcontrol@1.0_hal",
     ],
     out: [
         "vendor/amlogic/hardware/systemcontrol/1.0/types.cpp",
         "vendor/amlogic/hardware/systemcontrol/1.0/SystemControlAll.cpp",
+        "vendor/amlogic/hardware/systemcontrol/1.0/SystemControlCallbackAll.cpp",
     ],
 }
 
 genrule {
     name: "vendor.amlogic.hardware.systemcontrol@1.0_genc++_headers",
     tools: ["hidl-gen"],
-    cmd: "$(location hidl-gen) -o $(genDir) -Lc++-headers -rvendor.amlogic.hardware:vendor/amlogic/interfaces -randroid.hidl:system/libhidl/transport vendor.amlogic.hardware.systemcontrol@1.0",
+    cmd: "$(location hidl-gen) -o $(genDir) -Lc++-headers -randroid.hidl:system/libhidl/transport -rvendor.amlogic.hardware:vendor/amlogic/interfaces vendor.amlogic.hardware.systemcontrol@1.0",
     srcs: [
         ":vendor.amlogic.hardware.systemcontrol@1.0_hal",
     ],
@@ -36,6 +38,11 @@ genrule {
         "vendor/amlogic/hardware/systemcontrol/1.0/BnHwSystemControl.h",
         "vendor/amlogic/hardware/systemcontrol/1.0/BpHwSystemControl.h",
         "vendor/amlogic/hardware/systemcontrol/1.0/BsSystemControl.h",
+        "vendor/amlogic/hardware/systemcontrol/1.0/ISystemControlCallback.h",
+        "vendor/amlogic/hardware/systemcontrol/1.0/IHwSystemControlCallback.h",
+        "vendor/amlogic/hardware/systemcontrol/1.0/BnHwSystemControlCallback.h",
+        "vendor/amlogic/hardware/systemcontrol/1.0/BpHwSystemControlCallback.h",
+        "vendor/amlogic/hardware/systemcontrol/1.0/BsSystemControlCallback.h",
     ],
 }
 
