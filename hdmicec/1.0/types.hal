@@ -26,6 +26,15 @@ enum Result : int32_t {
 };
 
 /**
+ * connect to server type
+ */
+enum ConnectType : int32_t {
+    TYPE_HAL = 0,
+    TYPE_EXTEND,
+    TYPE_TOTAL,
+};
+
+/**
  * error code used for send_message.
  */
 enum SendMessageResult : int32_t {

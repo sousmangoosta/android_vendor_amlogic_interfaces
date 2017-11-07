@@ -159,5 +159,5 @@ interface IDroidHdmiCEC {
      *        previously registered callback must be replaced with this one.
      */
     @entry
-    setCallback(IDroidHdmiCecCallback callback);
+    setCallback(IDroidHdmiCecCallback callback, ConnectType type);
 };
