@@ -157,6 +157,9 @@ interface ITvServer {
   dtvGetScanFreqListMode(int32_t mode)
       generates(vec<FreqList> freqlist);
 
+  dtvGetSignalStrength()
+      generates(int32_t ret);
+
   atvdtvGetScanStatus()
       generates(int32_t value);
 
