@@ -19,6 +19,7 @@ hidl_interface {
         "Result",
         "SignalInfo",
         "TvHidlParcel",
+        "RRTSearchInfo",
     ],
     gen_java: true,
 }

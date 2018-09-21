@@ -39,11 +39,8 @@ struct DroidDisplayInfo {
 
 struct SourceInputParam {
     int32_t sourceInput;
-	  int32_t sourceType;
-    int32_t sourcePort;
     int32_t sigFmt;
     int32_t transFmt;
-    int32_t is3d;
 };
 
 struct TconRgbOgo {
@@ -57,4 +54,19 @@ struct TconRgbOgo {
     int32_t r_post_offset; // s11.0, range -1024~+1023, default is 0
     int32_t g_post_offset; // s11.0, range -1024~+1023, default is 0
     int32_t b_post_offset; // s11.0, range -1024~+1023, default is 0
+};
+
+struct NolineParam {
+    int32_t osd0;
+	int32_t osd25;
+    int32_t osd50;
+	int32_t osd75;
+	int32_t osd100;
+};
+
+struct OverScanParam {
+    int32_t he;
+	int32_t hs;
+    int32_t ve;
+	int32_t vs;
 };

@@ -51,7 +51,7 @@ interface ITvServer {
   getSupportInputDevices()
       generates (int32_t result, string devices);
 
-  getHdmiPorts()
+  getHdmiPorts(int32_t inputSrc)
       generates (int32_t ports);
 
   getTvSupportCountries()
@@ -97,7 +97,10 @@ interface ITvServer {
   setSourceInputExt(int32_t inputSrc, int32_t vInputSrc)
       generates (int32_t ret);
 
-  getSaveBlackoutEnable()
+  setBlackoutEnable(int32_t status)
+      generates (int32_t ret);
+
+  getBlackoutEnable()
       generates (int32_t ret);
 
   getATVMinMaxFreq()
@@ -176,5 +179,20 @@ interface ITvServer {
     generates (int32_t value);
 
   getAudioStreamOutmode()
+    generates (int32_t value);
+  getAtvAutoScanMode()
+    generates (int32_t value);
+  vdinUpdateForPQ(int32_t gameStatus, int32_t pcStatus, int32_t autoSwitchFlag)
+    generates (int32_t value);
+  setWssStatus(int32_t status)
+    generates (int32_t value);
+
+  searchRrtInfo(int32_t rating_region_id, int32_t dimension_id, int32_t value_id)
+    generates (RRTSearchInfo info);
+
+  updateRRT(int32_t freq, int32_t moudle, int32_t mode)
+    generates (int32_t value);
+
+  updateEAS(int32_t freq, int32_t moudle, int32_t mode)
     generates (int32_t value);
 };

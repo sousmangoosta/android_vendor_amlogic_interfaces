@@ -209,9 +209,6 @@ interface ISystemControl {
   loadPQSettings(SourceInputParam srcInputParam)
       generates (int32_t ret);
 
-  loadCpqLdimRegs()
-      generates (int32_t ret);
-
   setPQmode(int32_t pq_mode, int32_t isSave, int32_t isAutoswitch)
       generates (int32_t ret);
 
@@ -228,15 +225,6 @@ interface ISystemControl {
       generates (int32_t ret);
 
   saveColorTemperature(int32_t mode)
-      generates (int32_t ret);
-
-  setColorTemperatureParam(int32_t mode, TconRgbOgo params)
-      generates (int32_t ret);
-
-  getColorTemperatureParam(int32_t ode, int32_t id)
-      generates (int32_t ret);
-    
-  saveColorTemperatureParam(int32_t mode, TconRgbOgo params)
       generates (int32_t ret);
 
   setBrightness(int32_t value, int32_t isSave)
@@ -264,7 +252,7 @@ interface ISystemControl {
       generates (int32_t ret);
 
   saveSaturation(int32_t value)
-      generates (int32_t ret);   
+      generates (int32_t ret);
 
   setHue(int32_t value, int32_t isSave)
       generates (int32_t ret);
@@ -276,7 +264,7 @@ interface ISystemControl {
       generates (int32_t ret);
 
   setSharpness(int32_t value, int32_t enable, int32_t isSave)
-      generates (int32_t ret); 
+      generates (int32_t ret);
 
   getSharpness()
       generates (int32_t ret);
@@ -314,51 +302,78 @@ interface ISystemControl {
   saveDisplayMode(int32_t inputSrc, int32_t mode)
       generates (int32_t ret);
 
-  setBacklight(int32_t inputSrc, int32_t value, int32_t isSave)
+  setBacklight(int32_t value, int32_t isSave)
       generates (int32_t ret);
 
-  getBacklight(int32_t inputSrc)
+  getBacklight()
       generates (int32_t ret);
 
-  saveBacklight(int32_t inputSrc, int32_t value)
+  saveBacklight(int32_t value)
+      generates (int32_t ret);
+
+  setDynamicBacklight(int32_t mode, int32_t isSave)
+      generates (int32_t ret);
+
+  getDynamicBacklight()
+      generates (int32_t ret);
+
+  checkLdimExist()
       generates (int32_t ret);
 
   //factory mode
+  factorySetPQMode_Brightness(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode, int32_t value)
+      generates (int32_t ret);
+
+  factoryGetPQMode_Brightness(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode)
+      generates (int32_t ret);
+
+  factorySetPQMode_Contrast(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode, int32_t value)
+      generates (int32_t ret);
+
+  factoryGetPQMode_Contrast(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode)
+      generates (int32_t ret);
+
+  factorySetPQMode_Saturation(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode, int32_t value)
+      generates (int32_t ret);
+
+  factoryGetPQMode_Saturation(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode)
+      generates (int32_t ret);
+
+  factorySetPQMode_Hue(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode, int32_t value)
+      generates (int32_t ret);
+
+  factoryGetPQMode_Hue(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode)
+      generates (int32_t ret);
+
+  factorySetPQMode_Sharpness(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode, int32_t value)
+      generates (int32_t ret);
+
+  factoryGetPQMode_Sharpness(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t pq_mode)
+      generates (int32_t ret);
+
   factoryResetPQMode()
       generates (int32_t ret);
 
   factoryResetColorTemp()
       generates (int32_t ret);
 
-  factorySetPQParam(SourceInputParam srcInputParam, int32_t mode, int32_t id, int32_t value)
-      generates (int32_t ret);
-
-  factoryGetPQParam(SourceInputParam srcInputParam, int32_t mode, int32_t id)
-      generates (int32_t ret);
-
-  factorySetColorTemperatureParam(int32_t mode, int32_t id, int32_t value)
-      generates (int32_t ret);
-
-  factoryGetColorTemperatureParam(int32_t mode, int32_t id)
-      generates (int32_t ret);
-
-  factorySaveColorTemperatureParam(int32_t mode, int32_t id, int32_t value)
-      generates (int32_t ret);
-
-  factorySetOverscan(SourceInputParam srcInputParam, int32_t heValue, int32_t hsValue, int32_t veValue, int32_t vsValue)
-      generates (int32_t ret);
-
-  factoryGetOverscan(SourceInputParam srcInputParam, int32_t id)
-      generates (int32_t ret);
-
-  factorySetNolineParams(SourceInputParam srcInputParam, int32_t type, int32_t osd0Val, int32_t osd25Val, int32_t osd50Val, int32_t osd75Val, int32_t osd100Val)
-      generates (int32_t ret);
-
-  factoryGetNolineParams(SourceInputParam srcInputParam, int32_t type, int32_t id)
-      generates (int32_t ret);
-      
   factorySetParamsDefault()
       generates (int32_t ret);
+
+  factorySetNolineParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t type, int32_t osd0Val, int32_t osd25Val, int32_t osd50Val, int32_t osd75Val, int32_t osd100Val)
+      generates (int32_t ret);
+
+  factoryGetNolineParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t type)
+      generates (NolineParam param);
+
+  factoryfactoryGetColorTemperatureParams(int32_t colorTemp_mode)
+      generates (int32_t ret);
+
+  factorySetOverscan(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t heValue, int32_t hsValue, int32_t veValue, int32_t vsValue)
+      generates (int32_t ret);
+
+  factoryGetOverscan(int32_t inputSrc, int32_t sigFmt, int32_t transFmt)
+      generates (OverScanParam param);
 
   factorySSMRestore()
       generates (int32_t ret);
@@ -388,65 +403,55 @@ interface ISystemControl {
   setPLLValues(SourceInputParam srcInputParam)
       generates (int32_t ret);
 
-  setCVD2Values(SourceInputParam srcInputParam)
-      generates (int32_t ret);
-
-  setPQConfig(int32_t cmdId, int32_t value)
+  setCVD2Values()
       generates (int32_t ret);
 
   getSSMStatus()
       generates (int32_t ret);
 
-  resetLastPQSettingsSourceType()
-      generates (int32_t ret);
-
-  setCurrentSourceInfo(SourceInputParam srcInputParam)
+  setCurrentSourceInfo(int32_t sourceInput, int32_t sigFmt, int32_t transFmt)
       generates (int32_t ret);
 
   getCurrentSourceInfo()
       generates (Result result, SourceInputParam srcInputParam);
 
-  getAutoSwitchPCModeFlag()
-      generates (int32_t ret);
-  //PD END
-
-  setwhiteBalanceGainRed(int32_t inputSrc, int32_t colortemp_mode, int32_t value)
+  setwhiteBalanceGainRed(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode, int32_t value)
       generates (int32_t ret);
 
-  setwhiteBalanceGainGreen(int32_t inputSrc, int32_t colortemp_mode, int32_t value)
+  setwhiteBalanceGainGreen(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode, int32_t value)
       generates (int32_t ret);
 
-  setwhiteBalanceGainBlue(int32_t inputSrc, int32_t colortemp_mode, int32_t value)
+  setwhiteBalanceGainBlue(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode, int32_t value)
       generates (int32_t ret);
 
-  setwhiteBalanceOffsetRed(int32_t inputSrc, int32_t colortemp_mode, int32_t value)
+  setwhiteBalanceOffsetRed(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode, int32_t value)
       generates (int32_t ret);
 
-  setwhiteBalanceOffsetGreen(int32_t inputSrc, int32_t colortemp_mode, int32_t value)
+  setwhiteBalanceOffsetGreen(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode, int32_t value)
       generates (int32_t ret);
 
-  setwhiteBalanceOffsetBlue(int32_t inputSrc, int32_t colortemp_mode, int32_t value)
+  setwhiteBalanceOffsetBlue(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode, int32_t value)
       generates (int32_t ret);
 
-  getwhiteBalanceGainRed(int32_t inputSrc, int32_t colortemp_mode)
+  getwhiteBalanceGainRed(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode)
       generates (int32_t ret);
 
-  getwhiteBalanceGainGreen(int32_t inputSrc, int32_t colortemp_mode)
+  getwhiteBalanceGainGreen(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode)
       generates (int32_t ret);
 
-  getwhiteBalanceGainBlue(int32_t inputSrc, int32_t colortemp_mode)
+  getwhiteBalanceGainBlue(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode)
       generates (int32_t ret);
 
-  getwhiteBalanceOffsetRed(int32_t inputSrc, int32_t colortemp_mode)
+  getwhiteBalanceOffsetRed(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode)
       generates (int32_t ret);
 
-  getwhiteBalanceOffsetGreen(int32_t inputSrc, int32_t colortemp_mode)
+  getwhiteBalanceOffsetGreen(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode)
       generates (int32_t ret);
 
-  getwhiteBalanceOffsetBlue(int32_t inputSrc, int32_t colortemp_mode)
+  getwhiteBalanceOffsetBlue(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t colortemp_mode)
       generates (int32_t ret);
 
-  saveWhiteBalancePara(int32_t sourceType, int32_t colorTemp_mode, int32_t r_gain, int32_t g_gain, int32_t b_gain, int32_t r_offset, int32_t g_offset, int32_t b_offset)
+  saveWhiteBalancePara(int32_t sourceType, int32_t sigFmt, int32_t transFmt, int32_t colorTemp_mode, int32_t r_gain, int32_t g_gain, int32_t b_gain, int32_t r_offset, int32_t g_offset, int32_t b_offset)
       generates (int32_t ret);
 
   getRGBPattern()
@@ -478,4 +483,59 @@ interface ISystemControl {
 
   whiteBalanceGrayPatternGet()
       generates (int32_t ret);
+
+  factorySetHdrMode(int32_t mode)
+      generates (int32_t ret);
+
+  factoryGetHdrMode()
+      generates (int32_t ret);
+
+  setDnlpParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t level)
+      generates (int32_t ret);
+
+  getDnlpParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt)
+      generates (int32_t ret);
+
+  factorySetDnlpParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t level, int32_t final_gain)
+      generates (int32_t ret);
+
+  factoryGetDnlpParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t level)
+      generates (int32_t ret);
+
+  factorySetBlackExtRegParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t val)
+      generates (int32_t ret);
+
+  factoryGetBlackExtRegParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt)
+      generates (int32_t ret);
+
+  factorySetColorParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t color_type, int32_t color_param, int32_t val)
+      generates (int32_t ret);
+
+  factoryGetColorParams(int32_t inputSrc, int32_t sigFmt, int32_t transFmt, int32_t color_type, int32_t color_param)
+      generates (int32_t ret);
+
+  factorySetNoiseReductionParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t nr_mode, int32_t param_type, int32_t val)
+      generates (int32_t ret);
+
+  factoryGetNoiseReductionParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t nr_mode, int32_t param_type)
+      generates (int32_t ret);
+
+  factorySetCTIParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t param_type, int32_t val)
+      generates (int32_t ret);
+
+  factoryGetCTIParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t param_type)
+      generates (int32_t ret);
+
+  factorySetDecodeLumaParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t param_type, int32_t val)
+      generates (int32_t ret);
+
+  factoryGetDecodeLumaParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t param_type)
+      generates (int32_t ret);
+
+  factorySetSharpnessParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t isHD, int32_t param_type, int32_t val)
+      generates (int32_t ret);
+
+  factoryGetSharpnessParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t isHD,int32_t param_type)
+      generates (int32_t ret);
+//PD END
 };

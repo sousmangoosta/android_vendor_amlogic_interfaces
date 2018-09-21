@@ -57,3 +57,8 @@ struct FreqList {
     int32_t channelNum;
 };
 
+struct RRTSearchInfo {
+    string RatingRegionName;
+    string DimensionsName;
+    string RatingValueText;
+};

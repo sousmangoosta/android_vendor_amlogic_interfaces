@@ -17,6 +17,8 @@ hidl_interface {
         "Result",
         "SourceInputParam",
         "TconRgbOgo",
+        "NolineParam",
+        "OverScanParam",
     ],
     gen_java: true,
 }
