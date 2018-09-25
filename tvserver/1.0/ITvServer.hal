@@ -173,6 +173,9 @@ interface ITvServer {
   FactoryCleanAllTableForProgram()
     generates (int32_t ret);
 
+  tvSetFrontendParms(int32_t feType, int32_t freq, int32_t vStd, int32_t aStd, int32_t vfmt, int32_t soundsys, int32_t p1, int32_t p2)
+    generates (int32_t value);
+
   setTvCountry(string country);
 
   setAudioOutmode(int32_t mode)
@@ -183,10 +186,22 @@ interface ITvServer {
 
   getAudioStreamOutmode()
     generates (int32_t value);
+
   getAtvAutoScanMode()
     generates (int32_t value);
+
   vdinUpdateForPQ(int32_t gameStatus, int32_t pcStatus, int32_t autoSwitchFlag)
     generates (int32_t value);
+
+  DtvSetAudioAD(int32_t enable, int32_t audio_pid, int32_t audio_format)
+    generates (int32_t value);
+
+  DtvSwitchAudioTrack(int32_t prog_id, int32_t audio_track_id)
+    generates (int32_t value);
+
+  DtvSwitchAudioTrack3(int32_t audio_pid, int32_t audio_format,int32_t audio_param)
+    generates (int32_t value);
+
   setWssStatus(int32_t status)
     generates (int32_t value);
 
@@ -198,4 +213,7 @@ interface ITvServer {
 
   updateEAS(int32_t freq, int32_t moudle, int32_t mode)
     generates (int32_t value);
+
+  sendRecordingCmd(int32_t cmd, string id, string param)
+    generates (int32_t ret);
 };
