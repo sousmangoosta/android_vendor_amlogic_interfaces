@@ -7,6 +7,7 @@ hidl_package_root {
 subdirs = [
     "systemcontrol/1.0",
     "systemcontrol/1.0/vts/functional",
+    "systemcontrol/1.1",
     "hdmicec/1.0",
     "droidvold/1.0",
     "tvserver/1.0",
