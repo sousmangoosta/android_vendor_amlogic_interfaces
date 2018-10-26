@@ -179,6 +179,9 @@ interface ISystemControl {
 
   setCallback(ISystemControlCallback callback);
 
+  setAppInfo(string pkg, string cls)
+      generates (Result result);
+
   //3D
   set3DMode(string mode);
 
