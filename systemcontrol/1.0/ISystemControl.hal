@@ -179,7 +179,7 @@ interface ISystemControl {
 
   setCallback(ISystemControlCallback callback);
 
-  setAppInfo(string pkg, string cls)
+  setAppInfo(string pkg, string cls, vec<string> proc)
       generates (Result result);
 
   //3D
