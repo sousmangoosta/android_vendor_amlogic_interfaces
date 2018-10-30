@@ -10,4 +10,5 @@ subdirs = [
     "hdmicec/1.0",
     "droidvold/1.0",
     "tvserver/1.0",
+    "imageserver/1.0",
 ]
