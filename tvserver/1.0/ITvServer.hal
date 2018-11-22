@@ -216,4 +216,7 @@ interface ITvServer {
 
   sendRecordingCmd(int32_t cmd, string id, string param)
     generates (int32_t ret);
+
+  setDeviceIdForCec(int32_t DeviceId)
+    generates (int32_t ret);
 };
