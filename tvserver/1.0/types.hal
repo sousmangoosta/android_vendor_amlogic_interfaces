@@ -55,6 +55,7 @@ struct FreqList {
     int32_t ID;
     int32_t freq;
     int32_t channelNum;
+    string physicalNumDisplayName;
 };
 
 struct RRTSearchInfo {
