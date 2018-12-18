@@ -12,6 +12,7 @@ subdirs = [
     "droidvold/1.0",
     "tvserver/1.0",
     "imageserver/1.0",
+    "dtvkitserver/1.0",
     "remotecontrol/1.0",
     "miracast_hdcp2/1.0"
 ]
