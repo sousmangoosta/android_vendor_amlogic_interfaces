@@ -62,4 +62,5 @@ struct RRTSearchInfo {
     string RatingRegionName;
     string DimensionsName;
     string RatingValueText;
+    int32_t status;
 };

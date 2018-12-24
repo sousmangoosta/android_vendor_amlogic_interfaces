@@ -22,7 +22,7 @@ interface ITvServer {
   disconnect();
 
   lock();
-  
+
   unlock();
 
   processCmd(int32_t type, int32_t size)
@@ -56,6 +56,36 @@ interface ITvServer {
 
   getTvSupportCountries()
       generates (string countries);
+
+  getTvDefaultCountry()
+      generates (string str);
+
+  getTvCountryName(string country_code)
+      generates (string str);
+
+  getTvSearchMode(string country_code)
+      generates (string str);
+
+  getTvDtvSupport(string country_code)
+      generates (bool ret);
+
+  getTvDtvSystem(string country_code)
+      generates (string str);
+
+  getTvAtvSupport(string country_code)
+      generates (bool ret);
+
+  getTvAtvColorSystem(string country_code)
+      generates (string str);
+
+  getTvAtvSoundSystem(string country_code)
+      generates (string str);
+
+  getTvAtvMinMaxFreq(string country_code)
+      generates (string str);
+
+  getTvAtvStepScan(string country_code)
+      generates (bool ret);
 
   getCurSignalInfo()
       generates (SignalInfo info);
@@ -97,7 +127,7 @@ interface ITvServer {
   setSourceInputExt(int32_t inputSrc, int32_t vInputSrc)
       generates (int32_t ret);
 
-  setBlackoutEnable(int32_t status)
+  setBlackoutEnable(int32_t status, int32_t is_save)
       generates (int32_t ret);
 
   getBlackoutEnable()
@@ -205,7 +235,7 @@ interface ITvServer {
   setWssStatus(int32_t status)
     generates (int32_t value);
 
-  searchRrtInfo(int32_t rating_region_id, int32_t dimension_id, int32_t value_id)
+  searchRrtInfo(int32_t rating_region_id, int32_t dimension_id, int32_t value_id, int32_t program_id)
     generates (RRTSearchInfo info);
 
   updateRRT(int32_t freq, int32_t moudle, int32_t mode)
@@ -219,4 +249,24 @@ interface ITvServer {
 
   setDeviceIdForCec(int32_t DeviceId)
     generates (int32_t ret);
+
+  getTvRunStatus()
+    generates (int32_t ret);
+
+  getTvAction()
+    generates (int32_t ret);
+
+  setLcdEnable(int32_t enable)
+    generates (int32_t ret);
+
+  readMacAddress()
+    generates (Result result, int32_t[6] value);
+
+  saveMacAddress(int32_t[6] data_buf)
+    generates (int32_t ret);
+
+  getIwattRegs()
+    generates (int32_t ret);
+
+  setCurrentLanguage(string lang);
 };
