@@ -11,6 +11,6 @@ hidl_interface {
         "vendor.amlogic.hardware.systemcontrol@1.0",
     ],
     vendor: true,
-    gen_java: true,
+    gen_java: false,
 }
 

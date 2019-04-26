@@ -20,6 +20,6 @@ hidl_interface {
         "NolineParam",
         "OverScanParam",
     ],
-    gen_java: true,
+    gen_java: false,
 }
 
