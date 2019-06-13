@@ -153,6 +153,7 @@ interface ISystemControl {
   getDeepColorAttr(string mode)
       generates (Result result, string value);
 
+  initDolbyVision(int32_t state);
   /**
      * @param 1: enable
      *        0: disable
