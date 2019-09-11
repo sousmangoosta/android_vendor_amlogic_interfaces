@@ -183,6 +183,9 @@ interface ISystemControl {
   setAppInfo(string pkg, string cls, vec<string> proc)
       generates (Result result);
 
+  getPrefHdmiDispMode()
+      generates (Result result, string prefDispMode);
+
   //3D
   set3DMode(string mode);
 
