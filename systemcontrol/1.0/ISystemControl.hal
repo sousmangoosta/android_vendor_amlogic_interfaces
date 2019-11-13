@@ -234,6 +234,12 @@ interface ISystemControl {
   saveColorTemperature(int32_t mode)
       generates (int32_t ret);
 
+  setColorTemperatureUserParam(int32_t mode, int32_t is_save, int32_t type, int32_t value)
+      generates (int32_t ret);
+
+  getColorTemperatureUserParam()
+      generates (WhiteBalanceParam param);
+
   setBrightness(int32_t value, int32_t isSave)
       generates (int32_t ret);
 
@@ -322,6 +328,18 @@ interface ISystemControl {
       generates (int32_t ret);
 
   getDynamicBacklight()
+      generates (int32_t ret);
+
+  setLocalContrastMode(int32_t mode, int32_t isSave)
+      generates (int32_t ret);
+
+  getLocalContrastMode()
+      generates (int32_t ret);
+
+  setColorBaseMode(int32_t mode, int32_t isSave)
+      generates (int32_t ret);
+
+  getColorBaseMode()
       generates (int32_t ret);
 
   checkLdimExist()
@@ -545,8 +563,22 @@ interface ISystemControl {
   factoryGetSharpnessParams(int32_t inputSrc, int32_t sig_fmt, int32_t trans_fmt, int32_t isHD,int32_t param_type)
       generates (int32_t ret);
 
+  getPQDatabaseInfo(int32_t dataBaseName)
+      generates (Result result, PQDatabaseInfo Info);
+
+  setCurrentHdrInfo(int32_t hdrInfo)
+      generates (int32_t ret);
+
   setDtvKitSourceEnable(int32_t isEnable)
       generates (int32_t ret);
 
+  getModeSupportDeepColorAttr(string mode, string color)
+      generates (Result result);
 //PD END
+//FBC
+  StartUpgradeFBC(string fileName, int32_t mode, int32_t upgrade_blk_size)
+    generates (int32_t ret);
+
+  UpdateFBCUpgradeStatus(int32_t state, int32_t param)
+    generates (int32_t ret);
 };

@@ -16,7 +16,7 @@ hidl_interface {
         "DroidDisplayInfo",
         "Result",
         "SourceInputParam",
-        "TconRgbOgo",
+        "WhiteBalanceParam",
         "NolineParam",
         "OverScanParam",
     ],

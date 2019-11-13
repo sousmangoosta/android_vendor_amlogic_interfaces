@@ -160,4 +160,6 @@ interface IDroidHdmiCEC {
      */
     @entry
     setCallback(IDroidHdmiCecCallback callback, ConnectType type);
+
+    getCecWakePort() generates (int32_t portId);
 };

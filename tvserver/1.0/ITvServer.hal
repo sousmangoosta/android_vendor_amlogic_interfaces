@@ -196,10 +196,6 @@ interface ITvServer {
   SSMInitDevice()
     generates (int32_t ret);
 
-  startAutoBacklight();
-
-  stopAutoBacklight();
-
   FactoryCleanAllTableForProgram()
     generates (int32_t ret);
 
@@ -269,4 +265,14 @@ interface ITvServer {
     generates (int32_t ret);
 
   setCurrentLanguage(string lang);
+
+  setSameSourceEnable(int32_t isEnable)
+    generates (int32_t ret);
+
+  setPreviewWindow(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
+    generates (int32_t ret);
+
+  setPreviewWindowMode(int32_t enable)
+    generates (int32_t ret);
+
 };

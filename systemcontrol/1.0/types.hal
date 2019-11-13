@@ -43,7 +43,7 @@ struct SourceInputParam {
     int32_t transFmt;
 };
 
-struct TconRgbOgo {
+struct WhiteBalanceParam {
     uint32_t en;
     int32_t r_pre_offset;  // s11.0, range -1024~+1023, default is 0
     int32_t g_pre_offset;  // s11.0, range -1024~+1023, default is 0
@@ -70,3 +70,10 @@ struct OverScanParam {
     int32_t ve;
 	int32_t vs;
 };
+
+struct PQDatabaseInfo {
+    string ToolVersion;
+    string ProjectVersion;
+    string GenerateTime;
+};
+
