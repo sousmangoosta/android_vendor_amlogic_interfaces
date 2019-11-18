@@ -19,5 +19,6 @@ package vendor.amlogic.hardware.systemcontrol@1.0;
 interface ISystemControlCallback {
     oneway notifyCallback(int32_t event);
     oneway notifyFBCUpgradeCallback(int32_t state, int32_t param);
+    oneway notifySetDisplayModeCallback(int32_t mode);
 
 };
