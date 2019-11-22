@@ -574,6 +574,8 @@ interface ISystemControl {
 
   getModeSupportDeepColorAttr(string mode, string color)
       generates (Result result);
+
+  setHdrStrategy(string value);
 //PD END
 //FBC
   StartUpgradeFBC(string fileName, int32_t mode, int32_t upgrade_blk_size)

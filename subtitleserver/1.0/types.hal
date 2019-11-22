@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-package vendor.amlogic.hardware.dtvkitserver@1.0;
-import android.hidl.memory.token@1.0::IMemoryToken;
-import android.hidl.memory.block@1.0::MemoryBlock;
+package vendor.amlogic.hardware.subtitleserver@1.0;
 
 enum Result : uint32_t {
-    OK,
-    FAIL,
+    OK,                  // Success
+    FAIL,                // Failure, unknown reason
 };
 
 /**
@@ -32,9 +30,10 @@ enum ConnectType : int32_t {
     TYPE_TOTAL,
 };
 
-struct DTVKitHidlParcel {
-    int32_t msgType;
+struct SubtitleHidlParcel {
+    uint32_t msgType;
+
     vec<int32_t> bodyInt;
     vec<string> bodyString;
-    memory mem;
+    vec<float> bodyFloat;
 };

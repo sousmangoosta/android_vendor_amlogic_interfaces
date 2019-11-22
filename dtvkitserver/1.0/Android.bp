@@ -10,6 +10,8 @@ hidl_interface {
         "IDTVKitServerCallback.hal",
     ],
     interfaces: [
+        "android.hidl.memory.block@1.0",
+        "android.hidl.memory.token@1.0",
         "android.hidl.base@1.0",
     ],
     types: [
@@ -17,6 +19,6 @@ hidl_interface {
         "Result",
         "DTVKitHidlParcel"
     ],
-    gen_java: true,
+    gen_java: false,
 }
 

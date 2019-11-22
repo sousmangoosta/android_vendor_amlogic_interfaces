@@ -35,15 +35,13 @@ interface IImageService {
         generates (Result result);
     setCropRect(int32_t cropX, int32_t cropY, int32_t cropWidth, int32_t cropHeight)
         generates (Result result);
-    prepareBuf(string uri)
-        generates (Result result);
-    showBuf()
-        generates (Result result);
     start()
         generates (Result result);
     prepare()
         generates (Result result);
     show()
+        generates (Result result);
+    showImage(string uri)
         generates (Result result);
     release()
         generates (Result result);

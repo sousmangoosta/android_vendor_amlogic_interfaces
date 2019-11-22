@@ -14,27 +14,8 @@
  * limitations under the License.
  */
 
-package vendor.amlogic.hardware.dtvkitserver@1.0;
-import android.hidl.memory.token@1.0::IMemoryToken;
-import android.hidl.memory.block@1.0::MemoryBlock;
+package vendor.amlogic.hardware.subtitleserver@1.0;
 
-enum Result : uint32_t {
-    OK,
-    FAIL,
-};
-
-/**
- * connect to server type
- */
-enum ConnectType : int32_t {
-    TYPE_HAL = 0,
-    TYPE_EXTEND,
-    TYPE_TOTAL,
-};
-
-struct DTVKitHidlParcel {
-    int32_t msgType;
-    vec<int32_t> bodyInt;
-    vec<string> bodyString;
-    memory mem;
+interface ISubtitleServerCallback {
+    oneway notifyCallback(SubtitleHidlParcel parcel);
 };
