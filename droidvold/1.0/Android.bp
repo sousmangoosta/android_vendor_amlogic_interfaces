@@ -3,8 +3,6 @@
 hidl_interface {
     name: "vendor.amlogic.hardware.droidvold@1.0",
     root: "vendor.amlogic.hardware",
-    vendor: true,
-    proprietary: true,
     srcs: [
         "types.hal",
         "IDroidVold.hal",

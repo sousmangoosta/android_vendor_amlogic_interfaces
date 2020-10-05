@@ -3,7 +3,6 @@
 hidl_interface {
     name: "vendor.amlogic.hardware.hdmicec@1.0",
     root: "vendor.amlogic.hardware",
-    vendor: true,
     srcs: [
         "types.hal",
         "IDroidHdmiCEC.hal",
